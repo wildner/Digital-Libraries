@@ -1,0 +1,95 @@
+\documentclass[10pt,a4paper]{scrartcl}
+\usepackage{uebungsblatt}
+\usepackage{dsfont}
+\usepackage[utf8]{inputenc}
+\usepackage{ngerman}
+\usepackage{enumitem}
+\usepackage{stmaryrd}
+\usepackage{a4wide}
+\usepackage[ruled, vlined]{algorithm2e}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{listings}
+
+\lstset{
+  moredelim=[is][\underbar]{-}{-}
+}
+
+\newcommand{\Pot}{\mathcal{P}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+%Kopfzeile:
+\fancyhead[R]{Seite: \thepage \hspace{0.5ex} von \pageref{LastPage}}
+\fancyhead[L]{Wildner \& Metzner }
+
+\begin{document}
+
+\uebkopfzeile
+  {Digital Libraries} % Titel der Veranstaltung
+  {WS 14/15}  % Semesterangabe, Übungsgruppe
+  {}    % Dozenten, Übungsleiter
+  {Jens Metzner \& Manuel Wildner}    % Loesungsblattbearbeiter
+
+\uebtitel
+{Solution of assignment 1} % Titel (gross und zentriert)
+{7. Nov} % Datum der Abgabe
+
+
+\solution{1.1}{What are the key tasks of libraries? Describe each task briefly.}{2}
+Libraries act as mediators between information and users. They play an important role in information retrieval and knowledge transfer.
+\begin{itemize}
+  \item selection - Definition of collections
+  \item acquisition - Physical objects
+  \item description - Catalogs
+  \item access - Shelves, Lending schemes
+  \item preservation - Controlled environment, Media care
+\end{itemize}
+
+\solution{1.2}{Give, for each of the tasks, an example for useful application of digital technology.}{3}
+
+
+\solution{1.3}{It is widely believed that information supply fosters economic growth. Give two reasons why this can be the case.}{2}
+
+\begin{itemize}
+  \item Due to the transfer of technology knowledge.
+  \item To see the process of scientific discoveries.
+\end{itemize}
+
+\solution{1.4}{Briefly describe the idea how Bush’s Memex organizes information and provides access to it.}{3}
+
+Bush's Memex should be a analog device/desk in which individuals would compress and store all of their books, records, and communications in a microfilm storage. Two translucent screens were on the top of the desk on which material could be projected for convenient reading. Buttons were used to switch pages, save documents, turn pages or create 'links' between pages. Such associations trails were shared for example with other scientists.
+
+\solution{2.1}{Describe the three main ideas behind the Boyer-Moore algorithm for string searching }{2}
+
+\begin{itemize}
+  \item The pattern is compared against a possible match from right to left.
+  \item 'Bad character shift rule' is used to avoid unnecessary comparisons against a target character.
+  \item 'Good suffix shift rule' is used to align only matching pattern characters agains target characters already successfully matched.
+\end{itemize}
+
+
+\solution{2.2}{Outline the steps of exact string matching using Boyer-Moore algorithm in the following case (state which rule is the step following).}{4}
+
+\begin{lstlisting}
+Text:    DAVE_GAVE_NANCY_A_BANANA
+Pattern: BANAN-A-                     using bad character rule
+               BAN-A-NA               using bad character rule
+                     BANAN-A-         using bad character rule
+                           BANANA   finished
+\end{lstlisting}
+
+
+\solution{2.3}{What is a Trie structure? Describe briefly how it is built and used for string searching.}{4}
+
+A trie, also called prefix tree, is a multi-way tree structure. The Root is empty. Every inner node consists of a prefix depending on its level. For each level one letter is added. The leafs contain a whole word each.\\
+When a new element is inserted, every of its prefixes is compared to the corresponding nodes of the current level. The length of the prefix is incresed by one for each level. When the prefix can be found, the next prefix is searched in the level below. When a prefix cannot be found, a new node is added in this level containing the current prefix.\\
+If a word is searched in the tree, simply the path has to be followed, comparing each prefix like for insert.
+
+\end{document}
