@@ -55,11 +55,28 @@ Classification is used to structure concepts hierarchically, for example by a tr
 \solution{2}{How does the keyword based approach for retrieval in text documents work? What are its advantages and disadvantages?}{3}
 
 \solution{3}{Define the measures of Precision and Recall by which we can assess the quality of a retrieval algorithm.}{5}
+Precision and recall refer to the sets of relevant/non-relevant documents and the set of retrieved documents which consists of parts of the other two sets.\\
+Precision compares the true positives (relevant retrieved) to all retrieved documents. Recall measures how many true positives were received compared to the whole relevant set.\\
+\[
+	precision = \frac{\# relevant\ retrieved}{\# retrieved} \qquad recall = \frac{\# relevant\ retrieved}{\# relevant\ in\ collection}
+\]
 
 \solution{4}{Give two examples how precision and recall can be negatively affected in a keyword- based query.}{2}
 
 \solution{5}{How can an Ontology be used to improve retrieval in text documents?}{2}
 
 \solution{6}{Consider the tf*idf vector model for indexing text. Explain how the term weights are computed in this model, and give an interpretation of these values.}{3}
+\textbf{Computation:}
+\begin{itemize}
+	\item TF (term frequency): \# occurences of a term in the document
+	\item DF (document frequency): \# occurences of a document throughout all documents
+	\item TF*IDF: (term frequency)*(inverse document frequency)
+\end{itemize}
+\textbf{Interpretation:}
+\begin{itemize}
+	\item TF: The more times a term $t$ occurs in document $d$, the more likely $t$ is relevant to the document.
+	\item DF: The more a term $t$ occurs throughout all documents, the more poorly $t$ discriminates between documents.
+	\item TF*IDF: A high value indicates that the word occurs more often in this document than average.
+\end{itemize}
 
 \end{document}
